@@ -1,0 +1,4 @@
+# <type>(<scope>): <short summary>
+#
+# types: feat, fix, chore, docs, style, refactor, perf, test, build, ci, revert
+# scope: optional, e.g. api, db, user, settings

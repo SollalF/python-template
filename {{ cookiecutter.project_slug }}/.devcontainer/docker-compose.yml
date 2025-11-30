@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mount the workspace
+      - ..:/workspace:cached
+    command: sleep infinity
+    # Override default command so things don't shut down
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Keep container running
+    stdin_open: true
+    tty: true

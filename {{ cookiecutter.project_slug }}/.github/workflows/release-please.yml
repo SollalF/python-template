@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          # This assumes you have created a personal access token (PAT)
+          # and configured it as a GitHub action secret named
+          # `RELEASE_PLEASE_TOKEN` (or use GITHUB_TOKEN for public repos)
+          token: {% raw %}${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}{% endraw %}
+          # Use 'python' release-type for Python projects
+          release-type: python
+          # Specify the path to the version file (pyproject.toml)
+          version-file: pyproject.toml

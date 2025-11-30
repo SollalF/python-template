@@ -1,0 +1,11 @@
+{
+  "project_name": "python-template",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+  "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "description": "Add your description here",
+  "version": "0.1.0",
+  "author_name": "Your Name",
+  "author_email": "your.email@example.com",
+  "python_version": "3.12"
+}
+

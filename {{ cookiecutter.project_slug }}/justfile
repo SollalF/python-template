@@ -1,0 +1,24 @@
+# Run once after cloning
+init:
+    uv sync
+    # Initialize git repo if it doesn't exist (for devcontainer scenarios)
+    @bash -c 'if ! git rev-parse --git-dir > /dev/null 2>&1; then git init; fi'
+    uv run pre-commit install
+
+lint:
+    uv run ruff check src tests
+
+format:
+    uv run ruff format src tests
+
+typecheck:
+    uv run basedpyright
+
+test:
+    uv run pytest
+
+check:
+    just format
+    just lint
+    just typecheck
+    just test
